@@ -2,20 +2,20 @@
   "name": "goit-js-hw-09",
   "version": "2.0.0",
   "description": "HomeWork #9",
-  "homepage": "https://oleh-kliapko.github.io/goit-js-hw-08",
+  "homepage": "https://oleh-kliapko.github.io/goit-js-hw-09",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-08/"
+    "build": "parcel build src/*.html --public-url /goit-js-hw-09/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Oleh-Kliapko/goit-js-hw-08.git"
+    "url": "git+https://github.com/Oleh-Kliapko/goit-js-hw-09.git"
   },
   "keywords": [],
   "author": "Oleh Kliapko <goldclub1977@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Oleh-Kliapko/goit-js-hw-08/issues"
+    "url": "https://github.com/Oleh-Kliapko/goit-js-hw-09/issues"
   },
   "dependencies": {
     "modern-normalize": "^1.1.0"

@@ -3,11 +3,11 @@ import 'flatpickr/dist/flatpickr.min.css';
 
 const refs = {
   inputDateEl: document.querySelector('#datetime-picker'),
-  buttonStartEl: document.querySelector('button[data-start]'),
-  daysEl: document.querySelector('span[data-days]'),
-  hoursEl: document.querySelector('span[data-hours]'),
-  minutesEl: document.querySelector('span[data-minutes]'),
-  secondsEl: document.querySelector('span[data-seconds]'),
+  buttonStartEl: document.querySelector('[data-start]'),
+  daysEl: document.querySelector('[data-days]'),
+  hoursEl: document.querySelector('[data-hours]'),
+  minutesEl: document.querySelector('[data-minutes]'),
+  secondsEl: document.querySelector('[data-seconds]'),
 };
 
 const options = {
@@ -34,13 +34,12 @@ function onInputDate(selectedDates) {
     alert('Please choose a date in the future');
   } else {
     refs.buttonStartEl.removeAttribute('disabled', 'disabled');
-    createTimer(selectedDates);
+    onStartedTimer(selectedDates);
   }
 }
 
-function createTimer(selectedDates) {
-  const parsedSelectedDate = Date.parse(selectedDates);
-  let timerValueInMs = parsedSelectedDate - Date.now();
+function onStartedTimer(selectedDates) {
+  let timerValueInMs = Date.parse(selectedDates) - Date.now();
   let objTimerValue = convertMs(timerValueInMs);
 
   refs.buttonStartEl.addEventListener('click', () => {
@@ -51,13 +50,17 @@ function createTimer(selectedDates) {
       }
 
       objTimerValue = convertMs(timerValueInMs);
-      refs.daysEl.textContent = objTimerValue.days;
-      refs.hoursEl.textContent = objTimerValue.hours;
-      refs.minutesEl.textContent = objTimerValue.minutes;
-      refs.secondsEl.textContent = objTimerValue.seconds;
+      refs.daysEl.textContent = addLeadingZero(objTimerValue.days);
+      refs.hoursEl.textContent = addLeadingZero(objTimerValue.hours);
+      refs.minutesEl.textContent = addLeadingZero(objTimerValue.minutes);
+      refs.secondsEl.textContent = addLeadingZero(objTimerValue.seconds);
       timerValueInMs -= INTERVAL;
     }, INTERVAL);
   });
+}
+
+function addLeadingZero(value) {
+  return value.toString().padStart(2, '0');
 }
 
 function convertMs(ms) {

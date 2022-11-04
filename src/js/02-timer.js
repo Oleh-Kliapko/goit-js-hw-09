@@ -1,5 +1,6 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import Notiflix from 'notiflix';
 
 const refs = {
   inputDateEl: document.querySelector('#datetime-picker'),
@@ -31,7 +32,8 @@ const INTERVAL = 1000;
 
 function onInputDate(selectedDates) {
   if (selectedDates <= Date.now()) {
-    alert('Please choose a date in the future');
+    // alert('Please choose a date in the future');
+    Notiflix.Notify.failure('Please choose a date in the future');
   } else {
     refs.buttonStartEl.removeAttribute('disabled', 'disabled');
     onStartedTimer(selectedDates);

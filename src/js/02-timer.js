@@ -45,6 +45,8 @@ function onStartedTimer(selectedDates) {
   let objTimerValue = convertMs(timerValueInMs);
 
   refs.buttonStartEl.addEventListener('click', () => {
+    refs.buttonStartEl.setAttribute('disabled', 'disabled');
+    refs.inputDateEl.setAttribute('disabled', 'disabled');
     timeId = setInterval(() => {
       if (timerValueInMs <= 0) {
         clearInterval(timeId);

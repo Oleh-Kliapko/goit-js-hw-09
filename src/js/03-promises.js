@@ -27,10 +27,10 @@ function onFormSubmit(evt) {
   for (let i = 1; i <= amount.value; i += 1) {
     createPromise(i, stepValue)
       .then(({ position, delay }) => {
-        Notify.success(`✅ Fulfilled promise #${position} in ${delay}ms`);
+        Notify.success(`Fulfilled promise #${position} in ${delay}ms`);
       })
       .catch(({ position, delay }) => {
-        Notify.failure(`❌ Rejected promise #${position} in ${delay}ms`);
+        Notify.failure(`Rejected promise #${position} in ${delay}ms`);
       });
     stepValue += Number(step.value);
   }
